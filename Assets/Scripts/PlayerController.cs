@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
+    public float walkSpeed;
     public float sprintSpeed;
     private Rigidbody2D rb;
     private float horizontalMovement;
@@ -28,10 +29,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        movementSpeed = walkSpeed;
         playerMove(horizontalMovement, isSprinting);
     }
     private void playerMove(float horizontal, bool sprint)
     {
+        
+
         if (sprint == true)
         {
             movementSpeed = sprintSpeed;
