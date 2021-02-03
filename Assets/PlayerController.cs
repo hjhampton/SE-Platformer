@@ -6,36 +6,37 @@ public class PlayerController : MonoBehaviour
 {
     public float movementSpeed;
     public float sprintSpeed;
-    public float jumpForce;
- 
     private Rigidbody2D rb;
+    private float horizontalMovement;
+
+    private bool isSprinting = false;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); 
-        
+        rb = GetComponent<Rigidbody2D>();
+
+    }
+
+    private void Update()
+    {
+        horizontalMovement = Input.GetAxis("Horizontal");
+        if (Input.GetButtonDown("Sprint"))
+        {
+            isSprinting = true;
+        }
     }
 
     private void FixedUpdate()
     {
-        var horizontalChange = Input.GetAxis("Horizontal");
-        if (Input.GetButton("Sprint"))
+        playerMove(horizontalMovement, isSprinting);
+    }
+    private void playerMove(float horizontal, bool sprint)
+    {
+        if (sprint == true)
         {
-            transform.position += new Vector3(horizontalChange, 0, 0) * Time.deltaTime * sprintSpeed;
-        }
-        else
-        {
-            transform.position += new Vector3(horizontalChange, 0, 0) * Time.deltaTime * movementSpeed;
-        }
-        
-       
-        
-    
-        //Controls player jump
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = Vector2.up * jumpForce;
+            movementSpeed = sprintSpeed;
         }
 
+        transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime * movementSpeed;
     }
 }
