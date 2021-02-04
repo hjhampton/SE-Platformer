@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: bg2
+    uniqueID: 4231048321
+    locked: 0
+  - name: bg1
+    uniqueID: 2852123895
+    locked: 0
+  - name: Player
+    uniqueID: 3158512025
+    locked: 0
+  - name: ground
+    uniqueID: 2213957103
+    locked: 0
+  - name: Tile Shadows
+    uniqueID: 714631737
+    locked: 0
