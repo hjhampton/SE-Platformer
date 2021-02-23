@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalMovement;
 
+    //private Animator animator;
+
+
     private bool isSprinting = false;
 
     private void Start()
     {
+       // animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
     }
@@ -31,7 +35,10 @@ public class PlayerController : MonoBehaviour
     {
         movementSpeed = walkSpeed;
         playerMove(horizontalMovement, isSprinting);
+        //animator.SetFloat("moveX", horizontalMovement);
+        //animator.SetFloat("moveY", 0);
     }
+
     private void playerMove(float horizontal, bool sprint)
     {
         
@@ -42,5 +49,6 @@ public class PlayerController : MonoBehaviour
         }
 
         transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime * movementSpeed;
+
     }
 }
