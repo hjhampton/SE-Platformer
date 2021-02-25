@@ -98,6 +98,7 @@ MonoBehaviour:
   movementSpeed: 5
   walkSpeed: 0
   sprintSpeed: 0
+  animator: {fileID: 5908753446859098090}
 --- !u!114 &3406573936466893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ Animator:
   m_GameObject: {fileID: 8148370192385833157}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 165791b171170eb43ab8a64769bc0a0d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
