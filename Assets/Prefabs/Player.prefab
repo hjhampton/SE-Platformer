@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3406573936466893}
   - component: {fileID: 5908753446859098090}
   - component: {fileID: 5946256293789758553}
+  - component: {fileID: 1205974774981753625}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -98,6 +99,7 @@ MonoBehaviour:
   movementSpeed: 5
   walkSpeed: 0
   sprintSpeed: 0
+  animator: {fileID: 5908753446859098090}
 --- !u!114 &3406573936466893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 8148370192385833157}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 165791b171170eb43ab8a64769bc0a0d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,3 +185,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1205974774981753625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8148370192385833157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75504b066832b964ab2c26c3a58b9506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 10

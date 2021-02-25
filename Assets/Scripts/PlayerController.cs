@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalMovement;
 
-    //private Animator animator;
+    public Animator animator;
 
 
     private bool isSprinting = false;
@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
+        animator.SetFloat("Horizontal", horizontalMovement);
+
         if (Input.GetButtonDown("Sprint"))
         {
             isSprinting = true;
