@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System;
+using Unity.VersionControl.Git;
 
 namespace GitHub.Unity
 {
@@ -15,6 +16,19 @@ namespace GitHub.Unity
                 UnityShim.Raise_Editor_finishedDefaultHeaderGUI(editor);
             };
 #endif
+        }
+    }
+}
+
+namespace Unity.VersionControl.Git
+{
+    public static class UnityShim
+    {
+        public static event Action<UnityEditor.Editor> Editor_finishedDefaultHeaderGUI;
+        public static void Raise_Editor_finishedDefaultHeaderGUI(UnityEditor.Editor editor)
+        {
+            if (Editor_finishedDefaultHeaderGUI != null)
+                Editor_finishedDefaultHeaderGUI(editor);
         }
     }
 }
