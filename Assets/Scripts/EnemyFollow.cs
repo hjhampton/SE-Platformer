@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyFollow : MonoBehaviour
 {
     public float moveSpeed;
     public float visionRange;
@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     public Transform target;
     private Rigidbody2D enemyRigidbody;
-    private Vector2 movement;
+    private Vector2 movementDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +22,13 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 range = target.position - transform.position;
-        movement = range;
+        movementDistance = range;
         inRange = isInRange(range);
     }
 
     private void FixedUpdate()
     {
-        moveObject(movement, inRange);
+        moveObject(movementDistance, inRange);
     }
 
     void moveObject(Vector2 direction, bool objectInRange)
