@@ -41,14 +41,23 @@ public class PlayerController : MonoBehaviour
 
     private void playerMove(float horizontal, bool sprint)
     {
-        
-
         if (sprint == true)
         {
             movementSpeed = sprintSpeed;
         }
 
         transform.position += new Vector3(horizontal, 0, 0) * Time.deltaTime * movementSpeed;
+    }
 
+    // upon collision with moving platform, player becomes child of platform allowing them to move with it
+    void OnCollisionEnter2D(Collision2D collide) {
+        if (collide.gameObject.name.Equals ("MovingPlatformLR")) {
+            this.transform.parent = collide.transform;
+        }
+    }
+    void OnCollisionExit2D(Collision2D collide) {
+        if (collide.gameObject.name.Equals ("MovingPlatformLR")) {
+            this.transform.parent = null;
+        }
     }
 }
