@@ -8,7 +8,7 @@ public class MovingPlatformLR : MonoBehaviour
     bool moveRight = true;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (transform.position.x > 4f) {
             moveRight = false;

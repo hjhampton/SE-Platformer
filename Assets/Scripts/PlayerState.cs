@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerState : MonoBehaviour
 {
-    private int playerHealth = 5;
+    public int playerHealth = 5;
+  
     public Text healthText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +20,6 @@ public class PlayerState : MonoBehaviour
     void Update()
     {
         healthText.text = "HEALTH: " + playerHealth;
+       
     }
 }
