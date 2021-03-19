@@ -5,15 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ground
+  - Restart Trigger
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Characters
   - Water
   - UI
-  - 
-  - 
+  - Ghosts
+  - Triggers
   - 
   - 
   - 
