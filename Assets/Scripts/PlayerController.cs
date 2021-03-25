@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed;
     public float sprintSpeed;
     private Rigidbody2D rb;
+    public int playerHealth = 5;
+    public static int healthNumber;
     private float horizontalMovement;
 
     public Animator animator;
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        healthNumber = playerHealth;
         horizontalMovement = Input.GetAxis("Horizontal");
         animator.SetFloat("Horizontal", horizontalMovement);
 
@@ -56,10 +60,36 @@ public class PlayerController : MonoBehaviour
         if (collide.gameObject.name.Equals ("MovingPlatformLR")) {
             this.transform.parent = collide.transform;
         }
+
+        if (collide.gameObject.tag.Equals("Enemy"))
+        {
+            GiveDamage();
+            if(playerHealth == 0)
+            {
+                levelresetonDeath();
+            }
+        }
+
+        if(collide.gameObject.tag.Equals("Restart Trigger"))
+        {
+            levelresetonDeath();
+        }
     }
     void OnCollisionExit2D(Collision2D collide) {
-        if (collide.gameObject.name.Equals ("MovingPlatformLR")) {
+        if (collide.gameObject.name.Equals("MovingPlatformLR")) {
             this.transform.parent = null;
         }
+    }
+
+    //*Player is given damage//
+    public void GiveDamage()
+    {
+        playerHealth -= 1;
+    }
+
+    //*Resets level upon playerHealth reaching 0//
+    void levelresetonDeath()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
