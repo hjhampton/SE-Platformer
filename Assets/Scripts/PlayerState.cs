@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class PlayerState : MonoBehaviour
 {
-    public int playerHealth = 5;
-  
     public Text healthText;
 
 
@@ -19,7 +17,6 @@ public class PlayerState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = "HEALTH: " + playerHealth;
-       
+        healthText.text = "HEALTH: " + PlayerController.healthNumber;
     }
 }
