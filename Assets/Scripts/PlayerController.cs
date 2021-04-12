@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 
     public Animator animator;
 
+    public Projectile bullet;
+    public Transform LaunchOffset;
 
     private bool isSprinting = false;
 
@@ -34,6 +36,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Sprint"))
         {
             isSprinting = true;
+        }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Instantiate(bullet, LaunchOffset.position, transform.rotation);
         }
     }
 

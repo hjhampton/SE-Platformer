@@ -14,4 +14,29 @@ public class MenuScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void doCredits()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void doTitle()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+
+    public void doWorld2()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void doWorld3()
+    {
+        SceneManager.LoadScene(5);
+    }
+
+    public void doLevelSelect()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
